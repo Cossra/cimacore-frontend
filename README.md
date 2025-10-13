@@ -2,7 +2,7 @@
 
 [![Deployed to Azure](https://img.shields.io/badge/Deployed%20to-Azure-blue?logo=microsoftazure&logoColor=white)](https://portal.azure.com)
 [![Frontend Live](https://img.shields.io/website?url=https%3A%2F%2Fclimacore.cossrobert.com&label=Frontend)](https://climacore.cossrobert.com)
-[![Backend API](https://img.shields.io/website?url=https%3A%2F%2Fclimacoreapi.azurewebsites.net%2Fweatherforecast&label=Backend%20API)](https://climacoreapi.azurewebsites.net/weatherforecast)
+[![Backend API](https://img.shields.io/badge/Backend%20API-Azure-blue?logo=microsoftazure&logoColor=white)](https://climacoreapi.azurewebsites.net/weatherforecast)
 
 A cloud-native **React + TypeScript** frontend built with **Vite**, deployed via automated CI/CD pipelines using GitHub Actions and the Azure CLI, featuring a custom domain, environment-based API routing, and modern UI integration.
 
@@ -28,7 +28,6 @@ I want to view real-time weather data from a simple, modern interface.
 
 ## 👨‍💻 Local Development  
 
-```bash
 # Install dependencies
 npm install
 
@@ -53,4 +52,5 @@ GitHub Actions
 Custom Domain: `climacore.cossrobert.com`  
 Backend API: `https://climacoreapi.azurewebsites.net/weatherforecast`  
 
-💻 **Happy Coding!**
+<p align="center"><b>Happy Coding!</b></p>
+
