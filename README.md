@@ -28,13 +28,13 @@ I want to view real-time weather data from a simple, modern interface.
 
 ## 👨‍💻 Local Development  
 
-# Install dependencies
+**Install dependencies**
 npm install
 
-# Run locally with hot reload
+**Run locally**
 npm run dev
 
-# Build production bundle
+**Build production bundle**
 npm run build
 
 
