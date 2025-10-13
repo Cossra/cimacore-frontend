@@ -1,73 +1,56 @@
-# React + TypeScript + Vite
+# 🌦️ ClimaCore Frontend  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Deployed to Azure](https://img.shields.io/badge/Deployed%20to-Azure-blue?logo=microsoftazure&logoColor=white)](https://portal.azure.com)
+[![Frontend Live](https://img.shields.io/website?url=https%3A%2F%2Fclimacore.cossrobert.com&label=Frontend)](https://climacore.cossrobert.com)
+[![Backend API](https://img.shields.io/website?url=https%3A%2F%2Fclimacoreapi.azurewebsites.net%2Fweatherforecast&label=Backend%20API)](https://climacoreapi.azurewebsites.net/weatherforecast)
 
-Currently, two official plugins are available:
+A cloud-native **React + TypeScript** frontend built with **Vite**, deployed via automated CI/CD pipelines using GitHub Actions and the Azure CLI, featuring a custom domain, environment-based API routing, and modern UI integration.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🌐 **Live Demo:** [https://climacore.cossrobert.com](https://climacore.cossrobert.com)  
+🧩 **Backend API:** [https://climacoreapi.azurewebsites.net/weatherforecast](https://climacoreapi.azurewebsites.net/weatherforecast)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🧰 Overview  
+Built with **Vite + React 18** and hosted on **Azure Static Web Apps**, this frontend consumes live weather data from the ClimaCore backend API (`https://climacoreapi.azurewebsites.net/weatherforecast`).  
+It demonstrates a modern, modular architecture featuring client-side routing, async data fetching, and full Azure integration.
 
-## Expanding the ESLint configuration
+Deployed directly via the **Azure Static Web Apps CLI**, the app connects securely to the .NET API through configured environment variables for `VITE_API_BASE_URL`, ensuring smooth local and production operation.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🧩 Agile User Story  
+**As a user**  
+I want to view real-time weather data from a simple, modern interface.  
+**So that** I can quickly check conditions at a glance from any device.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 👨‍💻 Local Development  
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+```bash
+# Install dependencies
+npm install
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+# Run locally with hot reload
+npm run dev
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+# Build production bundle
+npm run build
+
+
+To connect to a local backend, create a `.env` file and add:  
+VITE_API_BASE_URL=http://localhost:5000  
+
+⚙️ **Tech Stack**  
+React 18  
+TypeScript  
+Vite  
+Tailwind CSS  
+Azure Static Web Apps  
+Azure CLI  
+GitHub Actions  
+Custom Domain: `climacore.cossrobert.com`  
+Backend API: `https://climacoreapi.azurewebsites.net/weatherforecast`  
+
+💻 **Happy Coding!**

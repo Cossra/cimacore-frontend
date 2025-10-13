@@ -1,4 +1,5 @@
-// Base API URL uses environment variable if set, otherwise falls back to production API
+// Base API URL: uses environment variable in production (Azure), 
+// otherwise defaults to the live API URL when running locally.
 const BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://climacoreapi.azurewebsites.net";
 
 export async function getWeather() {
