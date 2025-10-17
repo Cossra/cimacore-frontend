@@ -13,6 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -37,15 +40,16 @@ jobs:
 
       - name: Determine version
         id: version
-        run: |
-          echo "VERSION=v${{ github.run_number }}" >> $GITHUB_ENV
+        run: echo "VERSION=v${{ github.run_number }}" >> $GITHUB_ENV
 
       - name: Create GitHub Release (and tag)
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ env.VERSION }}
           name: ${{ env.VERSION }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           body: |
             Automated release created by workflow run ${{ github.run_number }}.
             Commit: ${{ github.sha }}
             Run: ${{ github.run_id }}
+
