@@ -1,53 +1,24 @@
-import { useEffect, useState } from "react";
-import { getWeather } from "../lib/apiClient";
-
-type Weather = {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
-};
+import WeatherCard from '../components/weather/WeatherCard'
+import { useWeather } from '../lib/useWeather'
 
 export default function Home() {
-  const [weather, setWeather] = useState<Weather[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    getWeather()
-      .then((data) => {
-        if (data) setWeather(data);
-        else setError("Failed to load data from API");
-      })
-      .catch(() => setError("An error occurred while fetching data"))
-      .finally(() => setLoading(false));
-  }, []);
+  const { data, loading, error } = useWeather()
 
   return (
-    <main className="p-8 text-center">
-      <h1 className="text-3xl font-bold mb-2">Welcome to CimaCore</h1>
-      <p className="text-gray-600 mb-6">Live .NET API data:</p>
+    <main className="p-8">
+      <h1 className="text-3xl font-bold mb-2 text-center">Welcome to CimaCore</h1>
+      <p className="text-gray-600 mb-6 text-center">Live .NET API data (mocked fallback)</p>
 
-      {loading && <p className="text-gray-500">Fetching weather data...</p>}
-      {error && <p className="text-red-500">{error}</p>}
+      {loading && <p className="text-gray-500 text-center">Fetching weather data...</p>}
+      {error && <p className="text-yellow-600 text-center">{error}</p>}
 
-      {!loading && !error && weather.length > 0 && (
-        <ul className="space-y-2">
-          {weather.map((item, index) => (
-            <li
-              key={index}
-              className="border border-gray-200 rounded-md p-3 shadow-sm bg-white"
-            >
-              <p className="font-semibold">
-                {new Date(item.date).toLocaleDateString()}
-              </p>
-              <p>
-                {item.summary} — {item.temperatureC}°C / {item.temperatureF}°F
-              </p>
-            </li>
+      {!loading && data && data.length > 0 && (
+        <div className="space-y-4 max-w-2xl mx-auto">
+          {data.map((item, i) => (
+            <WeatherCard key={i} item={item} />
           ))}
-        </ul>
+        </div>
       )}
     </main>
-  );
+  )
 }
