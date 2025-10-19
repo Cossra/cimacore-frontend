@@ -13,7 +13,7 @@ export default function Hero() {
           <div className="max-w-6xl mx-auto p-4 md:p-8">
             <div className="bg-white/10 backdrop-blur-sm rounded-lg inline-block px-4 py-2">
               <h2 className="text-xl md:text-2xl font-semibold text-white">Number One Weather App</h2>
-              <p className="text-sm text-white/90">Live in the cloud</p>
+              <p className="text-sm text-white/90 text-center">Live in the cloud</p>
             </div>
           </div>
         </div>

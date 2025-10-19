@@ -12,9 +12,16 @@ export default function Header() {
               <span className="hidden md:inline-block text-sm text-slate-300">Lightweight weather dashboard</span>
         </div>
 
-        <nav className="hidden sm:flex items-center space-x-4 text-sm opacity-90">
-              <Link to="/" className="text-white hover:underline">Home</Link>
-              <Link to="/docs" className="text-white hover:underline">Docs</Link>
+        <nav className="hidden sm:flex items-center space-x-4 text-sm">
+          <Link to="/" className="text-white hover:underline">Home</Link>
+          {/* Link to external API docs (Swagger) */}
+          {(() => {
+            const API_BASE = (import.meta as any).env?.VITE_API_BASE_URL || 'https://climacoreapi.azurewebsites.net'
+            const swaggerUrl = `${API_BASE.replace(/\/$/, '')}/swagger/index.html`
+            return (
+              <a href={swaggerUrl} target="_blank" rel="noopener noreferrer" className="text-white hover:underline">APIdocs</a>
+            )
+          })()}
         </nav>
       </div>
     </header>
