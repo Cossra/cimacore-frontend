@@ -29,10 +29,11 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+  /* allow content to flow full width; layout container will center inner content */
   min-width: 320px;
   min-height: 100vh;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
 }
 
 h1 {
